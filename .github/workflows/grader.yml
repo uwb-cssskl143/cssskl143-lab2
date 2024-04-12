@@ -43,5 +43,10 @@ jobs:
         run: mvn -B -ntp verify --file pom.xml
       - name: Verify submission not past due date
         run: bash .github/workflows/check_due_date.sh
+      - name: Archive Checkstyle reports
+        uses: actions/upload-artifact@v2
+        with:
+          name: checkstyle-reports
+          path: target/checkstyle-report.xml
       - name: Cheer!
         run: bash .github/workflows/success.sh
