@@ -47,6 +47,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: checkstyle-reports
-          path: target/checkstyle-report.xml
+          path: ./checkstyle-report.xml
       - name: Cheer!
         run: bash .github/workflows/success.sh
