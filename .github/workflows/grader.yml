@@ -48,5 +48,14 @@ jobs:
         with:
           name: checkstyle-reports
           path: ./checkstyle-report.xml
+      - name: Parse Test Results and Generate Report
+        run: python generate_report.py
+        env:
+          PYTHONIOENCODING: utf-8
+      - name: Upload Report as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-report
+          path: ./test-report.txt
       - name: Cheer!
         run: bash .github/workflows/success.sh
